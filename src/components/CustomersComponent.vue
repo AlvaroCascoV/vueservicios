@@ -6,7 +6,7 @@
 		<button v-on:click.prevent="findCustomer(idCustomer)">Buscar</button>
 		<div v-html="detalles"></div>
 	</form>
-	<table border="1">
+	<table class="table table-danger">
 		<thead>
 			<tr>
 				<th>ID</th>
