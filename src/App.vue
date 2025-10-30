@@ -1,12 +1,15 @@
 <template>
 	<!-- <CochesComponent /> -->
 	<!-- <CustomersComponent /> -->
-	<EmpleadoDetails />
+	<!-- <EmpleadoDetails /> -->
+	<MenuComponent />
+	<router-view />
 </template>
 
 <script>
-	import EmpleadoDetails from "./components/EmpleadoDetails.vue";
+	import MenuComponent from "./components/MenuComponent.vue";
 
+	// import EmpleadoDetails from "./components/EmpleadoDetails.vue";
 	// import CustomersComponent from "./components/CustomersComponent.vue";
 	// import CochesComponent from "./components/CochesComponent.vue";
 
@@ -15,7 +18,8 @@
 		components: {
 			// CochesComponent,
 			// CustomersComponent,
-			EmpleadoDetails,
+			// EmpleadoDetails,
+			MenuComponent,
 		},
 	};
 </script>
@@ -27,6 +31,5 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: #2c3e50;
-		margin-top: 60px;
 	}
 </style>

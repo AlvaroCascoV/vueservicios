@@ -1,6 +1,6 @@
 var Global = {
     urlApiCoches: "https://apicochespaco.azurewebsites.net/",
-    urlApiCustomers: "https://services.odata.org/V4/Northwind/Northwind.svc/",
+    urlApiCustomers: "https://services.odata.org/V4/Northwind/Northwind.svc/customers",
     urlApiEmpleados: "https://apiempleadosfullstack.azurewebsites.net/"
 }
 export default Global

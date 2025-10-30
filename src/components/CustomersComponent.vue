@@ -38,8 +38,8 @@
 			};
 		},
 		mounted() {
-			let request = "customers";
-			axios.get(urlApi + request).then((response) => {
+			// let request = "customers";
+			axios.get(urlApi).then((response) => {
 				this.clientes = response.data.value;
 			});
 		},
