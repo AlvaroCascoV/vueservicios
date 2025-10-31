@@ -8,12 +8,14 @@
 </template>
 
 <script>
-	import Global from "./../Global";
-	import axios from "axios";
-	//SI NECESITAMOS VARIABLES PARA TODO EL COMPONENTE Y SUS METODOS
-	//SE DECLARAN AQUI
-	// let urlApi = "https://apicochespaco.azurewebsites.net/";
-	let urlApi = Global.urlApiCoches;
+	import ServiceCoches from "@/services/ServiceCoches";
+	const service = new ServiceCoches();
+
+	// import Global from "./../Global";
+	// import axios from "axios";
+	// //SI NECESITAMOS VARIABLES PARA TODO EL COMPONENTE Y SUS METODOS
+	// //SE DECLARAN AQUI
+	// let urlApi = Global.urlApiCoches;
 	export default {
 		name: "CochesComponent",
 		data() {
@@ -22,10 +24,13 @@
 			};
 		},
 		mounted() {
-			let request = "webresources/coches";
-			//LAS VARIABLES DECLARADAS FUERA DEL EXPORT NO UTILIZAN "this"
-			axios.get(urlApi + request).then((response) => {
-				this.coches = response.data;
+			// let request = "webresources/coches";
+			// //LAS VARIABLES DECLARADAS FUERA DEL EXPORT NO UTILIZAN "this"
+			// axios.get(urlApi + request).then((response) => {
+			// 	this.coches = response.data;
+			// });
+			service.getCoches().then((result) => {
+				this.coches = result;
 			});
 		},
 	};

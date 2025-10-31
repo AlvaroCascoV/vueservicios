@@ -61,9 +61,9 @@
 	</nav>
 </template>
 <script>
-	import Global from "./../Global";
-	import axios from "axios";
-	let urlApi = Global.urlApiEmpleados;
+	import ServiceEmpleados from "@/services/ServiceEmpleados";
+
+	let service = new ServiceEmpleados();
 
 	export default {
 		name: "MenuComponent",
@@ -73,10 +73,13 @@
 			};
 		},
 		mounted() {
-			let request = "api/Empleados/oficios";
-			axios.get(urlApi + request).then((response) => {
-				console.log("leyendo oficios");
-				this.oficios = response.data;
+			// let request = "api/Empleados/oficios";
+			// axios.get(urlApi + request).then((response) => {
+			// 	console.log("leyendo oficios");
+			// 	this.oficios = response.data;
+			// });
+			service.getOficios().then((result) => {
+				this.oficios = result;
 			});
 		},
 	};

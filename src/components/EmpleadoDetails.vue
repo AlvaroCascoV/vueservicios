@@ -22,10 +22,8 @@
 </template>
 
 <script>
-	import Global from "@/Global";
-	import axios from "axios";
-	let urlApi = Global.urlApiEmpleados;
-
+	import ServiceEmpleados from "@/services/ServiceEmpleados";
+	let service = new ServiceEmpleados();
 	export default {
 		name: "EmpleadoDetails",
 		data() {
@@ -36,16 +34,22 @@
 			};
 		},
 		mounted() {
-			let request = "api/empleados";
-			axios.get(urlApi + request).then((response) => {
-				this.empleados = response.data;
+			// let request = "api/empleados";
+			// axios.get(urlApi + request).then((response) => {
+			// 	this.empleados = response.data;
+			// });
+			service.getEmpleados().then((result) => {
+				this.empleados = result;
 			});
 		},
 		methods: {
 			findEmpleado() {
-				let request = "api/empleados/" + this.idEmpleado;
-				axios.get(urlApi + request).then((response) => {
-					this.empleado = response.data;
+				// let request = "api/empleados/" + this.idEmpleado;
+				// axios.get(urlApi + request).then((response) => {
+				// 	this.empleado = response.data;
+				// });
+				service.findEmpleado(this.idEmpleado).then((result) => {
+					this.empleado = result;
 				});
 			},
 		},

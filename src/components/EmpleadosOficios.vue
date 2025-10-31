@@ -23,8 +23,9 @@
 </template>
 
 <script>
-	import Global from "@/Global";
-	import axios from "axios";
+	import ServiceEmpleados from "@/services/ServiceEmpleados";
+
+	let service = new ServiceEmpleados();
 	export default {
 		name: "EmpleadosOficios",
 		data() {
@@ -35,11 +36,14 @@
 		methods: {
 			loadEmpleados() {
 				let oficio = this.$route.params.oficio;
-				let request = "api/empleados/empleadosoficio/" + oficio;
-				let url = Global.urlApiEmpleados + request;
-				axios.get(url).then((response) => {
-					console.log("Leyendo empleados");
-					this.empleados = response.data;
+				// let request = "api/empleados/empleadosoficio/" + oficio;
+				// let url = Global.urlApiEmpleados + request;
+				// axios.get(url).then((response) => {
+				// 	console.log("Leyendo empleados");
+				// 	this.empleados = response.data;
+				// });
+				service.getEmpleadosOficio(oficio).then((result) => {
+					this.empleados = result;
 				});
 			},
 		},
